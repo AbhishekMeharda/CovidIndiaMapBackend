@@ -8,17 +8,14 @@ CORS(app)
 # Database connection
 def get_db_connection():
     conn = psycopg2.connect(
-        host="localhost",
-        database="data",
-        user="postgres",
-        password=""
+        "postgresql://indiamapdata_user:kwAdIMEFpoOa8KhTpYPYzt5VDYAVg6Of@dpg-cqorp0ggph6c73fbbmv0-a.oregon-postgres.render.com/indiamapdata"
     )
     return conn
 
 @app.route('/')
 def home():
     query = """
-        SELECT * FROM data
+        SELECT * FROM mapdata
     """
     conn = get_db_connection()
     cursor = conn.cursor()
@@ -38,7 +35,7 @@ def get_covid_data():
     cursor = conn.cursor()
     query = """
         SELECT state, suspected, tested, confirmed, deaths
-        FROM data
+        FROM mapdata
         WHERE state = %s
     """
     cursor.execute(query, (state,))
