@@ -6,12 +6,8 @@ bleach==4.1.0
 blinker==1.8.2
 brotlipy==0.7.0
 certifi==2021.5.30
-cffi @ file:///opt/concourse/worker/volumes/live/976f8942-f51d-4f0e-7352-2a10f0820d0e/volume/cffi_1625814703974/work
-chardet @ file:///opt/concourse/worker/volumes/live/7e1102c4-8702-40f2-63d6-f260ce5f85e4/volume/chardet_1607706831384/work
 click==8.1.7
 conda==4.10.3
-conda-package-handling @ file:///opt/concourse/worker/volumes/live/8fb3e065-760b-4a9d-4cd9-aca7fc8baf53/volume/conda-package-handling_1618262145611/work
-cryptography @ file:///opt/concourse/worker/volumes/live/d5dda287-c0b3-4861-7262-fab05baa64dc/volume/cryptography_1616769284011/work
 cycler==0.10.0
 debugpy==1.4.1
 decorator==5.0.9
@@ -24,7 +20,7 @@ Flask-Cors==4.0.1
 function==1.2.0
 getch==1.0
 gunicorn==22.0.0
-idna @ file:///home/linux1/recipes/ci/idna_1610986105248/work
+idna==3.2
 importlib-metadata==8.2.0
 Integral==0.1.0
 ipykernel==6.2.0
@@ -71,32 +67,32 @@ prompt-toolkit==3.0.20
 psycopg2-binary==2.9.9
 ptyprocess==0.7.0
 pycosat==0.6.3
-pycparser @ file:///tmp/build/80754af9/pycparser_1594388511720/work
+pycparser==2.20
 Pygments==2.10.0
-pyOpenSSL @ file:///tmp/build/80754af9/pyopenssl_1608057966937/work
+pyOpenSSL==20.0.1
 pyparsing==2.4.7
 pyrsistent==0.18.0
-PySocks @ file:///opt/concourse/worker/volumes/live/112288ac-9cb0-4e73-768b-13baf4ca6419/volume/pysocks_1605305820043/work
+PySocks==1.7.1
 python-dateutil==2.8.2
 pytz==2021.1
 pyzmq==22.2.1
 qtconsole==5.1.1
 QtPy==1.10.0
-requests @ file:///tmp/build/80754af9/requests_1608241421344/work
-ruamel-yaml-conda @ file:///opt/concourse/worker/volumes/live/e81cf0fe-611a-498e-6e69-a7320057c1ac/volume/ruamel_yaml_1616016689696/work
+requests==2.26.0
+ruamel-yaml-conda==0.15.80
 scikit-learn==1.4.2
 scipy==1.7.1
 Send2Trash==1.8.0
 sipy==0.3.1
-six @ file:///tmp/build/80754af9/six_1623709665295/work
+six==1.16.0
 terminado==0.11.1
 testpath==0.5.0
 threadpoolctl==3.5.0
 toml==0.10.2
 tornado==6.1
-tqdm @ file:///tmp/build/80754af9/tqdm_1625563689033/work
+tqdm==4.61.2
 traitlets==5.0.5
-urllib3 @ file:///tmp/build/80754af9/urllib3_1625084269274/work
+urllib3==1.26.6
 virtualenv==20.25.1
 wcwidth==0.2.5
 webencodings==0.5.1
