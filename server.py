@@ -57,4 +57,4 @@ def get_covid_data():
         return jsonify({'error': 'No data found'}), 404
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0')
