@@ -8,14 +8,17 @@ CORS(app)
 # Database connection
 def get_db_connection():
     conn = psycopg2.connect(
-        "postgresql://indiamapdata_user:kwAdIMEFpoOa8KhTpYPYzt5VDYAVg6Of@dpg-cqorp0ggph6c73fbbmv0-a.oregon-postgres.render.com/indiamapdata"
+        host="localhost",
+        database="data",
+        user="postgres",
+        password=""
     )
     return conn
 
 @app.route('/')
 def home():
     query = """
-        SELECT * FROM mapdata
+        SELECT * FROM data
     """
     conn = get_db_connection()
     cursor = conn.cursor()
@@ -25,23 +28,37 @@ def home():
     conn.close()
     return jsonify(data)
 
-@app.route('/api/data', methods=['GET'])
-def get_covid_data():
-    state = request.args.get('state')
-    if not state:
-        return jsonify({'error': 'State parameter is required'}), 400
-
+def fetch_data(state, date=None):
     conn = get_db_connection()
     cursor = conn.cursor()
-    query = """
-        SELECT state, suspected, tested, confirmed, deaths
-        FROM mapdata
-        WHERE state = %s
-    """
-    cursor.execute(query, (state,))
+    if date:
+        query = """
+            SELECT state, suspected, tested, confirmed, deaths
+            FROM data
+            WHERE state = %s AND date = %s
+        """
+        cursor.execute(query, (state, date))
+    else:
+        query = """
+            SELECT state, suspected, tested, confirmed, deaths
+            FROM data
+            WHERE state = %s
+        """
+        cursor.execute(query, (state,))
     data = cursor.fetchone()
     cursor.close()
     conn.close()
+    return data
+
+@app.route('/api/data', methods=['GET'])
+def get_covid_data():
+    state = request.args.get('state')
+    date = request.args.get('date')
+    if not state:
+        return jsonify({'error': 'State parameter is required'}), 400
+
+    data = fetch_data(state, date)
+
     if data:
         return jsonify({
             'state': data[0],
