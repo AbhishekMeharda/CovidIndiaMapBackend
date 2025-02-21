@@ -1,2 +1,2 @@
 # CovidIndiaMapBackend
-# This is a graph plotted using python.
+# This is plotted using python.
