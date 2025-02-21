@@ -1,2 +1,2 @@
 # CovidIndiaMapBackend
-# This is plotted using python.
+# Covid data plot using python
