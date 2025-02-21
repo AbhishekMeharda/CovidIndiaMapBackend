@@ -5,7 +5,7 @@ import psycopg2
 app = Flask(__name__)
 CORS(app)
 
-# Database connection
+# Database connection function
 def get_db_connection():
     conn = psycopg2.connect(
         host="localhost",
